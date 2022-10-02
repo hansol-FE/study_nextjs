@@ -1,6 +1,13 @@
 import Head from 'next/head'
 
-export default function Home() {
+export async function getServerSideProps() {
+  console.log("i am server")
+  return{
+    props:{time: new Date().toISOString()}
+  }
+}
+
+export default function Home({time}) {
   return (
     <div className="container">
       <Head>
@@ -10,7 +17,7 @@ export default function Home() {
 
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          {time}
         </h1>
       </main>
 
