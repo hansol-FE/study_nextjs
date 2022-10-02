@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 
-export default function Home() {
+export default function CSR() {
   const [time, setTime] = useState()
 
   useEffect(()=>{
