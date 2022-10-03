@@ -1,10 +1,13 @@
 import Layout from 'components/Layout'
 import SubLayout from 'components/SubLayout'
+import { useRouter } from 'next/router'
 
 export default function UsernameInfo() {
+  const router = useRouter()
+  const {username, info} = router.query
   return (
     <>
-      <h1 className="title">UsernameInfo</h1>
+      <h1 className="title">{username} {info}</h1>
     </>
   )
 }
