@@ -7,7 +7,7 @@ export default function UsernameInfo() {
   const {username, info} = router.query
   return (
     <>
-      <h1 className="title">{username} {info}</h1>
+      <h1 className="title">{username}~ {info}</h1>
     </>
   )
 }
