@@ -10,6 +10,12 @@ export async function getServerSideProps() {
 export default function Home({ time }) {
   return (
     <>
+       <h1>
+        Read this posts{' '}
+        <Link href="/posts/first-post">
+          <a>첫번째 글</a>
+        </Link>
+      </h1>
       <h1 className="title">{time}</h1>
       <h1>
         <Link href="/csr">
@@ -24,6 +30,12 @@ export default function Home({ time }) {
       <h1>
         <Link href="/isr">
           <a>ISR로</a>
+        </Link>
+      </h1>
+      <h1>
+        Read this posts{' '}
+        <Link href="/posts/second-post">
+          <a>두번째 글</a>
         </Link>
       </h1>
     </>
