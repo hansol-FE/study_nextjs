@@ -24,12 +24,24 @@ import { useEffect, useState } from 'react';
 //   };
 // }
 
-export default function Home() {
-  const [ allPostsData, setAllPostData ] = useState([]);
+export async function getStaticProps() {
+  const response = await fetch('http://localhost:3000/api/posts')
+  const json = await response.json()
+  const allPostsData = json.allPostsData
 
-  useEffect(() => {
-    fetch('/api/posts').then(res => res.json()).then(data=>setAllPostData(data.allPostsData))
-  },[])
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+
+export default function Home({allPostsData}) {
+  // const [ allPostsData, setAllPostData ] = useState([]);
+
+  // useEffect(() => {
+  //   fetch('/api/posts').then(res => res.json()).then(data=>setAllPostData(data.allPostsData))
+  // },[])
   return (
     <>
       <Head>
