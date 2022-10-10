@@ -2,7 +2,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
-import { getSortedPostsData } from '../lib/posts';
+// import { getSortedPostsData } from '/lib/posts';
+import { useEffect, useState } from 'react';
 
 // export async function getStaticProps() {
 //   const allPostsData = getSortedPostsData();
@@ -13,20 +14,22 @@ import { getSortedPostsData } from '../lib/posts';
 //   };
 // }
 
-export async function getServerSideProps() {
-  console.log("server")
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
-}
+// export async function getServerSideProps() {
+//   console.log("server")
+//   const allPostsData = getSortedPostsData();
+//   return {
+//     props: {
+//       allPostsData,
+//     },
+//   };
+// }
 
+export default function Home() {
+  const [ allPostsData, setAllPostData ] = useState([]);
 
-
-
-export default function Home({allPostsData}) {
+  useEffect(() => {
+    fetch('/api/posts').then(res => res.json()).then(data=>setAllPostData(data.allPostsData))
+  },[])
   return (
     <>
       <Head>
