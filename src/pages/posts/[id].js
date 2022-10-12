@@ -3,6 +3,7 @@ import Head from "next/head";
 import utilStyles from 'styles/utils.module.css';
 import { getAllPostIds, getPostData } from 'lib/posts';
 import Date from "components/Date";
+import { useRouter } from "next/router";
 
 export async function getStaticProps({ params }) {
   // Add the "await" keyword like this:
@@ -19,11 +20,15 @@ export async function getStaticPaths() {
   const paths = getAllPostIds();
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
 export default function Post({ postData }) {
+  const router = useRouter();
+  if(router.isFallback) {
+    return <div>loading...</div>
+  }
   return (
     <>
         <Head>

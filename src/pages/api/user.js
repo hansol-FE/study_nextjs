@@ -1,5 +1,5 @@
-import { userDatail } from "constansts/userDetail"
+import { userDatail } from 'constansts/userDetail'
 
 export default function handler(req, res) {
-    res.status(200).json(userDatail)
+  res.status(200).json(userDatail)
 }

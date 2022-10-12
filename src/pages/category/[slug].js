@@ -3,11 +3,13 @@ import SubLayout from 'components/SubLayout'
 import { useRouter } from 'next/router'
 
 export default function CategorySlug() {
-    const router = useRouter()
-    const {slug, from} = router.query
+  const router = useRouter()
+  const { slug, from } = router.query
   return (
     <>
-      <h1 className="title">Category {slug}, {from}</h1>
+      <h1 className="title">
+        Category {slug}, {from}
+      </h1>
     </>
   )
 }
