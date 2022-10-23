@@ -24,7 +24,8 @@ export async function getStaticPaths() {
   };
 }
 
-export default function Post({ postData }) {
+export default function Post({ postData, preview }) {
+  console.log(`>>>>>${preview}`)
   const router = useRouter();
   if(router.isFallback) {
     return <div>loading...</div>
